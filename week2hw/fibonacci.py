@@ -10,5 +10,5 @@ def fibonacci_recur(term):
         return 1
     return fibonacci_recur(term - 1) + fibonacci_recur(term - 2)
 
-print(fibonacci_calc(8))
-print(fibonacci_recur(8))
+print(fibonacci_calc(9))
+print(fibonacci_recur(9))
