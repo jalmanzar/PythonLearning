@@ -3,4 +3,12 @@ def fibonacci_calc(term):
     result = round(result)
     return result
 
-print(fibonacci_calc(4))
+def fibonacci_recur(term):
+    if term == 0:
+        return 0
+    if term == 1:
+        return 1
+    return fibonacci_recur(term - 1) + fibonacci_recur(term - 2)
+
+print(fibonacci_calc(8))
+print(fibonacci_recur(8))
