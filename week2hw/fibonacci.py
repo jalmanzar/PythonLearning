@@ -3,4 +3,4 @@ def fibonacci_calc(term):
     result = round(result)
     return result
 
-print(fibonacci_calc(2))
+print(fibonacci_calc(4))
