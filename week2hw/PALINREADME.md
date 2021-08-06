@@ -18,7 +18,7 @@ First attempt... I iterate over the string. How? I can treat the string like a l
 
 Take Maloy's advice. Let's create a simple test case and build up from there.
 
-============
+%1============ Initial thoughts and catching my failure mode
 
 I created a test case but couldn't even create a simple test solution.
 
@@ -28,7 +28,7 @@ I went and looked up parts of the problem and it feels a little disingenius now,
 
 What the heck is a palindrome in the first place?
 
-A set of letters that are the same from some midpoint out towards the beginning and end of the set. Wtf. I can do better than that.
+A set of letters that are the same from some midpoint out towards the beginning and end of the set. Wtf is this definition I can do better than that.
 
 A set of characters that read the same from left to right as right to left. Better.
 
@@ -43,9 +43,69 @@ If I am supplied a string, what do I do with it? For this exercise, I can think 
 Some possibilities:
 
 Am I looking for a set of characters across the entire string and putting together a palindrome?
+
     - Can they be taken in any order to put together a palindrome?
         - Cherrypicking
+        - This one sounds fun and the most practical implementation.
+
     - Do I lift them out of the string in the order they are in and put together a new string?
-        -Example: "Not cherrypickiNg" -> nn
-        -Example: "SmapLe tabLeS" -> slls
-        - I'm gonna cross this one out on account of the fact that this doesn't seem useful after exploring those examples.
+        -Example I/O: "Not cherrypickiNg" -> nn
+        -Example I/O: "SmapLe tabLeS" -> slls
+        - I'm gonna cross this one out on account of the fact that this doesn't seem useful after exploring those examples. Yeah fuck that.
+
+    - The prevailing rhetoric around what this problem is seems to be "find the longest palindromic substring," with solutions arond slicing and iterating.
+        - I guess we can cut up the string and compare the slices?
+        Example I/O: herpabracarbaderp -> abracarba
+
+%2============ Solving for cherrypicking
+
+Let's cherrypick. That sounds monumentally harder on the surface, but let's see what I come up with!
+
+I could go over the set of characters and check for even numbers of letters that are present, then pop those out. If I did this by hand, I would take something like:
+
+"I am trying the hardest I can to use a bunch of vowels."
+
+And grab: 3 Is, 3 As, 1 M, 4 Ts, 2 Rs, 1 Y, 3 Ns, 1 G, 3 Hs, 4 Es, 3 Ss, 1 D, 2 Cs, 3 Os, 2 Us, 1 F, 1 W
+
+I'm honestly not sure if I got all of those right. That's a lot of manual work prone to human error. The acceptable characters should look like this:
+
+ttttrreeeeccuu
+
+And a possible palindrome could look like this: ttureecceerutt
+
+I'm only using the even counts because I can guarantee a palindrome with an even number of instances for every character. If I'm being liberal with the use of the word "character" here, I can include numbers and special characters like a period, but I'll get there later and only use letters for now. This also opens up the option of giving the user of this hypothetical program the option to take a character with an uneven count and place exactly one of those to "divide" the palindrome.
+
+But okay before these thoughts leave me, solving that by hand was kinda cool.
+
+So my actual steps were:
+
+1. Count the number of times the first unique letter appears in the sentence.
+    1.a Save that value somewhere to reference.
+
+2. Realize I don't need to count that letter again. Move on to the next unique letter. Repeat and move on to the next step once I run out of unique letters
+
+###After three or four of these. it's becoming hard to manually keep track of, so I make a mental note of how powerful automation is.###
+
+3. Grab the even counts and put them in a set, in the order I picked them out. 
+    
+###I realize they can be in any order, but this is easier to understand and work with so I stick with it.###
+
+4. (Since I put them in order), I grab half of the first set of unique letters, and stick them on the other end of the entire set. 
+TTTTrreeeeccuu -> TTrreeeeccuuTT
+
+5. I look backwards from the other end of the string, and find the next set of unique letters. I grab half of those and place them where the last set of unique letters originally ended.
+ttrreeeeccUUtt -> ttUrreeeeccUtt
+
+6. Repeat steps 4 and 5. Break when... the difference between the original "index" and "reverse index" is zero. Or, maybe as a better check, break when the middle two characters match each other. (To be explored, w/e spent lots of time already on this).
+ttuRReeeeccutt -> ttuReeeeccRutt
+tturEEEEccrutt -> tturEEccEErutt
+ttureeCCeerutt -> ttureeCCeerutt
+
+Alright this is the moonshot solution. This is the one that sounds fun though.
+
+%3============ Solving for "I guess I'm proving I can slice and iterate"
+
+After all that, I find this one boring actually but I get why it's important.
+
+Assumptions:
+There is a palindrome in the string and I don't have to re-order the entire thing.
