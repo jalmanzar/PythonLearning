@@ -109,3 +109,9 @@ After all that, I find this one boring actually but I get why it's important.
 
 Assumptions:
 There is a palindrome in the string and I don't have to re-order the entire thing.
+
+-grumble- use two for loops and slice the strings. Compare them. Making unit tests for this will be the fun part.
+
+%4============ My takeaway from this thought exercise
+
+This was like outlinining those essays I used to like so much. It's a thought exploration around a problem and I like to think I'm really good at that.
