@@ -1,5 +1,10 @@
 This is a thought dump, I'll be exercising how to write proper markdowns as I go I guess.
 
+%1 Initial thoughts and catching my failure mode
+%2 Solving for cherrypicking
+%3 Solving for "I guess I'm proving I can slice and iterate"
+%4 My takeaway from this thought exercise
+
 Ooookay then, do I even understand the problem statement?
 "Find the longest palindrome in a string"
 
@@ -46,7 +51,7 @@ Am I looking for a set of characters across the entire string and putting togeth
 
     - Can they be taken in any order to put together a palindrome?
         - Cherrypicking
-        - This one sounds fun and the most practical implementation.
+        - This one sounds fun and like the most practical implementation.
 
     - Do I lift them out of the string in the order they are in and put together a new string?
         -Example I/O: "Not cherrypickiNg" -> nn
@@ -73,7 +78,7 @@ ttttrreeeeccuu
 
 And a possible palindrome could look like this: ttureecceerutt
 
-I'm only using the even counts because I can guarantee a palindrome with an even number of instances for every character. If I'm being liberal with the use of the word "character" here, I can include numbers and special characters like a period, but I'll get there later and only use letters for now. This also opens up the option of giving the user of this hypothetical program the option to take a character with an uneven count and place exactly one of those to "divide" the palindrome.
+I'm only using the even counts because I can guarantee a palindrome with an even number of instances for every character. If I'm being liberal with the use of the word "character" here, I can include numbers and special characters like a period, but I'll get there later and only use letters for now. This also opens up the option of giving the user of this hypothetical program the option to take a character with an uneven count and place that subset in the center to "divide" the palindrome.
 
 But okay before these thoughts leave me, solving that by hand was kinda cool.
 
@@ -105,7 +110,7 @@ Alright this is the moonshot solution. This is the one that sounds fun though.
 
 %3============ Solving for "I guess I'm proving I can slice and iterate"
 
-After all that, I find this one boring actually but I get why it's important.
+After all that, I find this one boring actually but I get why it's important and what I'm supposed to show off.
 
 Assumptions:
 There is a palindrome in the string and I don't have to re-order the entire thing.
