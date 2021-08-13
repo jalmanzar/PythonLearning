@@ -5,7 +5,9 @@ def palin__brute_test():
 
     assert palin_brute("aba") == True
 
-def palin_conven_test():
-    from palindrome import palin_conven
+def palin_expand_test():
+    from palindrome import palin_expand
 
-    assert palin_conven("aba") == True
+    assert palin_expand("aba") == True
+
+print(palin__brute_test())

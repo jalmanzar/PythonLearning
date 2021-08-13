@@ -117,6 +117,14 @@ There is a palindrome in the string and I don't have to re-order the entire thin
 
 -grumble- use two for loops and slice the strings. Compare them. Making unit tests for this will be the fun part.
 
+Update 8/12/21
+
+So I found out the dynamic programming solution to this is a lot more interesting. So that's what I'm going to be pursuing, in time.
+
+I guess I'll try all three solutions... in time. The important thing I'm getting out of all this is working with different implementations and types of solutions.
+
+I'll do the O(n^3) solution as a start, and revisit as I refine my understanding and practice of dynamic programming.
+
 %4============ My takeaway from this thought exercise
 
 This was like outlinining those essays I used to like so much. It's a thought exploration around a problem and I like to think I'm really good at that.
