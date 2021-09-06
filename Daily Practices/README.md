@@ -1,0 +1,1 @@
+I'm taking my mentor's advice and doing daily practices to not just code, but get proper process down. This includes created markdown files laying out my thoughts, and creating unit tests as I proceed. I can only get better.
