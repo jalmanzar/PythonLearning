@@ -45,3 +45,23 @@ Better Pseudocode? Just different:
      - Check if index is I
         - Translate V as 5, add to result
             - result == 14
+
+===================== First unit test error
+
+roman_test.py F                                                                                                                                                                    [100%]
+
+======================================================================================== FAILURES ========================================================================================
+_______________________________________________________________________________________ test_roman _______________________________________________________________________________________
+
+    def test_roman():
+        assert roman_translate("XIV") == 14
+>       assert roman_translate("III") == 3
+E       AssertionError: assert -3 == 3
+E        +  where -3 = roman_translate('III')
+
+roman_test.py:6: AssertionError
+================================================================================ short test summary info =================================================================================
+FAILED roman_test.py::test_roman - AssertionError: assert -3 == 3
+=================================================================================== 1 failed in 0.12s ====================================================================================
+
+Looks like I need to fix the logic so that consecutive Is don't subtract from each other.

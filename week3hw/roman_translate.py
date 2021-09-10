@@ -4,12 +4,13 @@ def roman_translate(text):
                  "X" : 10}
     result = 0
 
-    for i in text:
-        result += r_numerals[i]
-    for i in text:
-        if i == "I" and (r_numerals[i] < r_numerals[i+1]):
+    for i in range(len(text)):
+        result += r_numerals[text[i]]
+    for i in range(len(text)-1):
+        if text[i] == "I" and (r_numerals[text[i]] < r_numerals[text[i+1]]):
             result = result - 2
     
     return result
 
 print(roman_translate("XIV"))
+print(roman_translate("XXI"))
