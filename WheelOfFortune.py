@@ -1,8 +1,6 @@
-import sys
 import json
 import random
 import time
-sys.setExecutionLimit(600000)
 
 class WOFPlayer:
     def __init__(self, name):
@@ -79,9 +77,6 @@ class WOFComputerPlayer(WOFPlayer):
                     return s_guess
         elif coinflip == False:
             return random.choice(possible)
-
-import sys
-sys.setExecutionLimit(600000) # let this take up to 10 minutes
 
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 VOWELS  = 'AEIOU'
